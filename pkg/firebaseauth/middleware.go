@@ -44,3 +44,10 @@ func (m *Middleware) renderError(ctx context.Context, w http.ResponseWriter, sta
 	log.Warningf(ctx, msg)
 	render.New().Text(w, status, fmt.Sprintf("%d authentication failed", status))
 }
+
+// NewMiddleware ... get middleware
+func NewMiddleware(firebaseauth Firebaseauth) *Middleware {
+	return &Middleware{
+		firebaseauth,
+	}
+}
