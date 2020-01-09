@@ -10,26 +10,27 @@ the boilerplate for monorepo application
 
 ## Apps
 
-| Package                                           | Localhost              | Prodction         |
-| :------------------------------------------------ | :--------------------- | :---------------- |
-| **[[REST] bff](./cmd/bff)**                       | http://localhost:8081  | bff.\*            |
-| **[[gRPC] authentication](./cmd/authentication)** | http://localhost:50051 | authentication.\* |
+| Package                             | Localhost             | Prodction  |
+| :---------------------------------- | :-------------------- | :--------- |
+| **[[REST] default](./cmd/default)** | http://localhost:8080 | default.\* |
 
 ## development
 
 ### Preparation
 
+<!--
 - generate rsa pem file
 
 ```bash
 > openssl genrsa -out ./secret/catharsis-gcp.rsa 1024
 > openssl rsa -in ./secret/catharsis-gcp.rsa  -pubout > ./secret/catharsis-gcp.rsa.pub
-```
+``` -->
 
-- environment (using direnv)
+- environment (using dotenv)
+  - you should fix a host to default-db if you use docker-compose as server runtime
 
 ```bash
-> cp .envrc.tmpl .envrc
+> cp .tmpl.env.default .env.default
 ```
 
 ### server starting
@@ -50,44 +51,26 @@ the boilerplate for monorepo application
 > docker-compose up -d
 ```
 
-- example of sign in grpcurl
+- example of default server
 
 ```bash
-> grpcurl -plaintext -d '{"user_id": "user_id", "password":"password"}' 127.0.0.1:50051 Authentication/SignIn
+> curl --request GET 'http://localhost:8080/ping'
 ```
 
-- example of create user in grpcurl
-
-```bash
-> grpcurl -plaintext -d '{"password":"password","display_name":"ゲストさn","icon_image_path":"icon_url","background_image_path":"background_url","profile":"text"}' localhost:50051 Authentication/CreateUser
-```
-
-- example of bff server
-
-```bash
-> curl --request POST 'http://localhost:8081/v1/me/sign_in' -d '{"user_id": "user_id", "password":"password"}'
-```
-
-### database
+<!-- ### database
 
 - generate server code by sql boiler
 
 ```bash
 > sqlboiler -c ./db/authentication/sqlboiler.toml -o ./pkg/dbmodels/authentication psql
-```
+``` -->
 
 ## production
 
 ### build
 
 ```bash
-> docker build -f ./docker/production/authentication/Dockerfile .
-```
-
-### start
-
-```bash
-> docker container run -it 4069a0d5dfac -p 50051:50051
+> docker build -f ./docker/production/default/Dockerfile .
 ```
 
 ## structure
