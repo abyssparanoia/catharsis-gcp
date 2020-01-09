@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
-	"go.uber.org/zap"
 )
 
 // GetJSON ... get json data
@@ -14,7 +13,7 @@ func GetJSON(r *http.Request, dst interface{}) error {
 	err := dec.Decode(dst)
 	if err != nil {
 		ctx := r.Context()
-		log.Warningf(ctx, "dec.Decode", zap.Error(err))
+		log.Warningm(ctx, "dec.Decode", err)
 		return err
 	}
 	return nil

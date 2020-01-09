@@ -2,10 +2,9 @@ package firebaseauth
 
 import (
 	"context"
-	"errors"
+	"fmt"
 
 	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
-	"go.uber.org/zap"
 )
 
 type firebaseauth struct {
@@ -15,13 +14,13 @@ type firebaseauth struct {
 func (s *firebaseauth) SetCustomClaims(ctx context.Context, userID string, claims *Claims) error {
 	c, err := getAuthClient(ctx)
 	if err != nil {
-		log.Errorf(ctx, "getAuthClient", zap.Error(err))
+		log.Errorm(ctx, "getAuthClient", err)
 		return err
 	}
 
 	err = c.SetCustomUserClaims(ctx, userID, claims.ToMap())
 	if err != nil {
-		log.Errorf(ctx, "c.SetCustomUserClaims", zap.Error(err))
+		log.Errorm(ctx, "c.SetCustomUserClaims", err)
 		return err
 	}
 
@@ -35,20 +34,20 @@ func (s *firebaseauth) Authentication(ctx context.Context, ah string) (string, *
 
 	c, err := getAuthClient(ctx)
 	if err != nil {
-		log.Warningf(ctx, "getAuthClient", zap.Error(err))
+		log.Warningm(ctx, "getAuthClient", err)
 		return userID, claims, err
 	}
 
 	token := getTokenByAuthHeader(ah)
 	if token == "" {
-		err := errors.New("token empty error")
-		log.Warningf(ctx, "token empty error", zap.Error(err))
+		err := log.Warninge(ctx, "token empty error")
 		return userID, claims, err
 	}
 
 	t, err := c.VerifyIDToken(ctx, token)
 	if err != nil {
-		log.Warningf(ctx, "c.VerifyIDToken", zap.Error(err))
+		msg := fmt.Sprintf("c.VerifyIDToken: %s", token)
+		log.Warningm(ctx, msg, err)
 		return userID, claims, err
 	}
 
