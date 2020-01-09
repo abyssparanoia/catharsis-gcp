@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  authentication-server:
+    build:
+      context: .
+      dockerfile: docker/development/Dockerfile
+    environment:
+      PORT: 50051
+      ENV: development
+    ports:
+      - 50051:50051
+    volumes:
+      - .:/go/src/github.com/abyssparanoia/catharsis
+    command: ash -c "realize start"
+
+  authentication-db:
+    image: postgres:10-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./db/authentication/data:/var/lib/postgresql/data
+      - ./db/authentication/sql:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
