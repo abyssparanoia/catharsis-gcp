@@ -1,27 +1,24 @@
 version: "3"
 
 services:
-  authentication-server:
+  default-server:
     build:
       context: .
       dockerfile: docker/development/Dockerfile
-    environment:
-      PORT: 50051
-      ENV: development
     ports:
-      - 50051:50051
+      - 8080:8080
     volumes:
       - .:/go/src/github.com/abyssparanoia/catharsis-gcp
     command: ash -c "realize start"
 
-  authentication-db:
-    image: postgres:10-alpine
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_PASSWORD: password
+  default-db:
+    build: ./db/default
     volumes:
-      - ./db/authentication/data:/var/lib/postgresql/data
-      - ./db/authentication/sql:/docker-entrypoint-initdb.d
+      - ./db/default/data:/var/lib/mysql
+      - ./db/default/initdb.d:/docker-entrypoint-initdb.d
     ports:
-      - "5432:5432"
+      - "3306:3306"
+    environment:
+      TZ: "Asia/Tokyo"
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: default_db
