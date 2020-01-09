@@ -3,35 +3,15 @@ settings:
     force: false
     interval: 0s
 schema:
-  - name: authentication-server
+  - name: default-server
     path: .
     commands:
       install:
         status: true
-        method: go build -o ./cmd/authentication/authentication-server ./cmd/authentication/
+        method: go build -o ./cmd/default/default-server ./cmd/default/
       run:
         status: true
-        method: ./cmd/authentication/authentication-server
-      fmt:
-        status: true
-    watcher:
-      extensions:
-        - go
-      paths:
-        - /
-      ignored_paths:
-        - .git
-        - .realize
-        - vendor
-  - name: bff-server
-    path: .
-    commands:
-      install:
-        status: true
-        method: go build -o ./cmd/bff/bff-server ./cmd/bff
-      run:
-        status: true
-        method: ./cmd/bff/bff-server
+        method: ./cmd/default/default-server
       fmt:
         status: true
     watcher:

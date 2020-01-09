@@ -2,3 +2,5 @@
 secret/*
 .envrc
 db/*/data/*
+.env.*
+serviceAccount.json
