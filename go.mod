@@ -3,6 +3,7 @@ module github.com/abyssparanoia/catharsis-gcp
 go 1.13
 
 require (
+	cloud.google.com/go v0.38.0
 	firebase.google.com/go v3.11.1+incompatible
 	github.com/caarlos0/env/v6 v6.1.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
@@ -33,7 +34,7 @@ require (
 	go.opencensus.io v0.22.2 // indirect
 	go.uber.org/zap v1.13.0
 	golang.org/x/text v0.3.2
-	google.golang.org/api v0.15.0 // indirect
+	google.golang.org/api v0.15.0
 	google.golang.org/grpc v1.26.0
 	gopkg.in/go-playground/assert.v1 v1.2.1
 	gopkg.in/go-playground/validator.v9 v9.31.0
