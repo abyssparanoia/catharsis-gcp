@@ -33,6 +33,8 @@ func (d *Dependency) Inject(e *Environment) {
 		firebaseAuth = firebaseauth.New()
 	}
 
+	// fCli := cloudfirestore.NewClient(e.ProjectID)
+
 	// Config
 	dbCfg := mysql.NewConfig()
 
