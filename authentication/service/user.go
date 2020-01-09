@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	"github.com/abyssparanoia/catharsis/authentication/domain/model"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/domain/model"
 )
 
 // User ... user service interface

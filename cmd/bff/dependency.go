@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/abyssparanoia/catharsis/bff/handler"
-	"github.com/abyssparanoia/catharsis/bff/infrastructure/repository"
-	"github.com/abyssparanoia/catharsis/bff/service"
-	pb "github.com/abyssparanoia/catharsis/proto"
+	"github.com/abyssparanoia/catharsis-gcp/bff/handler"
+	"github.com/abyssparanoia/catharsis-gcp/bff/infrastructure/repository"
+	"github.com/abyssparanoia/catharsis-gcp/bff/service"
+	pb "github.com/abyssparanoia/catharsis-gcp/proto"
 	"google.golang.org/grpc"
 )
 

@@ -3,13 +3,13 @@ package handler
 import (
 	"net/http"
 
-	"github.com/abyssparanoia/catharsis/pkg/log"
-	"github.com/abyssparanoia/catharsis/pkg/renderer"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/renderer"
 	"go.uber.org/zap"
 	"gopkg.in/go-playground/validator.v9"
 
-	"github.com/abyssparanoia/catharsis/bff/service"
-	"github.com/abyssparanoia/catharsis/pkg/parameter"
+	"github.com/abyssparanoia/catharsis-gcp/bff/service"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/parameter"
 )
 
 // Authentication ... authentication handler struct

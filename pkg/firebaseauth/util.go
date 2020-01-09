@@ -6,7 +6,7 @@ import (
 
 	firebase "firebase.google.com/go"
 	"firebase.google.com/go/auth"
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 	"go.uber.org/zap"
 )
 

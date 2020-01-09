@@ -6,8 +6,8 @@ package mock_repository
 
 import (
 	context "context"
-	model "github.com/abyssparanoia/catharsis/authentication/domain/model"
-	repository "github.com/abyssparanoia/catharsis/authentication/domain/repository"
+	model "github.com/abyssparanoia/catharsis-gcp/authentication/domain/model"
+	repository "github.com/abyssparanoia/catharsis-gcp/authentication/domain/repository"
 	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )

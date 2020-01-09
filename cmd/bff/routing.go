@@ -3,9 +3,9 @@ package main
 import (
 	"net/http"
 
-	"github.com/abyssparanoia/catharsis/pkg/httpaccesslog"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/httpaccesslog"
 
-	"github.com/abyssparanoia/catharsis/bff/handler"
+	"github.com/abyssparanoia/catharsis-gcp/bff/handler"
 	"github.com/go-chi/chi"
 )
 

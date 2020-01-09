@@ -8,12 +8,12 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/abyssparanoia/catharsis/authentication/domain/model"
-	mock_repository "github.com/abyssparanoia/catharsis/authentication/domain/repository/mock"
-	"github.com/abyssparanoia/catharsis/authentication/service"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/domain/model"
+	mock_repository "github.com/abyssparanoia/catharsis-gcp/authentication/domain/repository/mock"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/service"
 
-	"github.com/abyssparanoia/catharsis/pkg/jwtauth"
-	mock_jwt_auth "github.com/abyssparanoia/catharsis/pkg/jwtauth/mock"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/jwtauth"
+	mock_jwt_auth "github.com/abyssparanoia/catharsis-gcp/pkg/jwtauth/mock"
 )
 
 type mockExpectedUserGet struct {

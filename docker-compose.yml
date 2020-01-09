@@ -11,7 +11,7 @@ services:
     ports:
       - 50051:50051
     volumes:
-      - .:/go/src/github.com/abyssparanoia/catharsis
+      - .:/go/src/github.com/abyssparanoia/catharsis-gcp
     command: ash -c "realize start"
 
   authentication-db:

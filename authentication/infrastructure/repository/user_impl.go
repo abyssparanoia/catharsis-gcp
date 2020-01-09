@@ -8,11 +8,11 @@ import (
 	"github.com/volatiletech/sqlboiler/boil"
 	"go.uber.org/zap"
 
-	"github.com/abyssparanoia/catharsis/authentication/domain/model"
-	"github.com/abyssparanoia/catharsis/authentication/domain/repository"
-	"github.com/abyssparanoia/catharsis/authentication/infrastructure/internal/entity"
-	dbmodels "github.com/abyssparanoia/catharsis/pkg/dbmodels/authentication"
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/domain/model"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/domain/repository"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/infrastructure/internal/entity"
+	dbmodels "github.com/abyssparanoia/catharsis-gcp/pkg/dbmodels/authentication"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 )
 
 type user struct {

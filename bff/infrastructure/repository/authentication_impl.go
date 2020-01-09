@@ -3,9 +3,9 @@ package repository
 import (
 	"context"
 
-	"github.com/abyssparanoia/catharsis/bff/domain/repository"
-	"github.com/abyssparanoia/catharsis/pkg/log"
-	pb "github.com/abyssparanoia/catharsis/proto"
+	"github.com/abyssparanoia/catharsis-gcp/bff/domain/repository"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
+	pb "github.com/abyssparanoia/catharsis-gcp/proto"
 	"go.uber.org/zap"
 )
 

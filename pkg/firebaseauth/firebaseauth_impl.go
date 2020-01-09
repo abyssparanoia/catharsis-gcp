@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 	"go.uber.org/zap"
 )
 

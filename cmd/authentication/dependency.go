@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/abyssparanoia/catharsis/pkg/psql"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/psql"
 
-	"github.com/abyssparanoia/catharsis/pkg/jwtauth"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/jwtauth"
 
-	"github.com/abyssparanoia/catharsis/authentication/handler"
-	"github.com/abyssparanoia/catharsis/authentication/infrastructure/repository"
-	"github.com/abyssparanoia/catharsis/authentication/service"
-	pb "github.com/abyssparanoia/catharsis/proto"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/handler"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/infrastructure/repository"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/service"
+	pb "github.com/abyssparanoia/catharsis-gcp/proto"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"

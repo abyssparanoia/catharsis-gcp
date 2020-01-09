@@ -4,12 +4,12 @@ import (
 	"context"
 	"errors"
 
-	"github.com/abyssparanoia/catharsis/pkg/jwtauth"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/jwtauth"
 
 	"go.uber.org/zap"
 
-	"github.com/abyssparanoia/catharsis/authentication/domain/repository"
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/domain/repository"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

@@ -3,9 +3,9 @@ package handler
 import (
 	"context"
 
-	"github.com/abyssparanoia/catharsis/authentication/service"
-	"github.com/abyssparanoia/catharsis/pkg/log"
-	pb "github.com/abyssparanoia/catharsis/proto"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/service"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
+	pb "github.com/abyssparanoia/catharsis-gcp/proto"
 	"go.uber.org/zap"
 )
 

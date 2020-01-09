@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	"github.com/abyssparanoia/catharsis/bff/domain/repository"
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/bff/domain/repository"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 	"go.uber.org/zap"
 )
 

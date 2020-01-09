@@ -3,8 +3,8 @@ package intercepter
 import (
 	"context"
 
-	"github.com/abyssparanoia/catharsis/pkg/jwtauth"
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/jwtauth"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"

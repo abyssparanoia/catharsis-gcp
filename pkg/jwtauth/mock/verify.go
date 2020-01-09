@@ -6,7 +6,7 @@ package mock_jwtauth
 
 import (
 	context "context"
-	jwtauth "github.com/abyssparanoia/catharsis/pkg/jwtauth"
+	jwtauth "github.com/abyssparanoia/catharsis-gcp/pkg/jwtauth"
 	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )

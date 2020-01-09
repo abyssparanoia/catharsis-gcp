@@ -6,7 +6,7 @@ package mock_service
 
 import (
 	context "context"
-	service "github.com/abyssparanoia/catharsis/authentication/service"
+	service "github.com/abyssparanoia/catharsis-gcp/authentication/service"
 	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )

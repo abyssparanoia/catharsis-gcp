@@ -1,4 +1,4 @@
-# catharsis
+# catharsis-gcp
 
 ## what is this
 
@@ -22,8 +22,8 @@ the boilerplate for monorepo application
 - generate rsa pem file
 
 ```bash
-> openssl genrsa -out ./secret/catharsis.rsa 1024
-> openssl rsa -in ./secret/catharsis.rsa  -pubout > ./secret/catharsis.rsa.pub
+> openssl genrsa -out ./secret/catharsis-gcp.rsa 1024
+> openssl rsa -in ./secret/catharsis-gcp.rsa  -pubout > ./secret/catharsis-gcp.rsa.pub
 ```
 
 - environment (using direnv)
@@ -196,7 +196,7 @@ the boilerplate for monorepo application
 │   ├── authentication.pb.go
 │   └── authentication.proto
 └── secret
-    ├── catharsis.rsa
-    └── catharsis.rsa.pub
+    ├── catharsis-gcp.rsa
+    └── catharsis-gcp.rsa.pub
 
 ```

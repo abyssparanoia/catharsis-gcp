@@ -1,6 +1,6 @@
 FROM golang:1.13-alpine
 
-WORKDIR /go/src/github.com/abyssparanoia/catharsis/
+WORKDIR /go/src/github.com/abyssparanoia/catharsis-gcp/
 COPY . .
 
 ENV GO111MODULE=off

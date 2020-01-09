@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/abyssparanoia/catharsis/pkg/errcode"
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/errcode"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 	"github.com/unrolled/render"
 	"golang.org/x/text/encoding/japanese"
 	"golang.org/x/text/transform"

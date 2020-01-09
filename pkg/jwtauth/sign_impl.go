@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 	jwt "github.com/dgrijalva/jwt-go"
 	"go.uber.org/zap"
 )

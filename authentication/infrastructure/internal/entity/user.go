@@ -1,8 +1,8 @@
 package entity
 
 import (
-	"github.com/abyssparanoia/catharsis/authentication/domain/model"
-	dbmodels "github.com/abyssparanoia/catharsis/pkg/dbmodels/authentication"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/domain/model"
+	dbmodels "github.com/abyssparanoia/catharsis-gcp/pkg/dbmodels/authentication"
 	"github.com/volatiletech/null"
 )
 

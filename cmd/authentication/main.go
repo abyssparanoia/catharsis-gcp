@@ -10,7 +10,7 @@ import (
 	env "github.com/caarlos0/env/v6"
 	"go.uber.org/zap"
 
-	"github.com/abyssparanoia/catharsis/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
 )
 
 func main() {

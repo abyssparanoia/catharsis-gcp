@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"github.com/abyssparanoia/catharsis/authentication/domain/model"
+	"github.com/abyssparanoia/catharsis-gcp/authentication/domain/model"
 )
 
 // User ... user repositoy interface
