@@ -25,15 +25,16 @@ func (d *Dependency) Inject(e *Environment) {
 	var lCli log.Writer
 	var firebaseAuth firebaseauth.Firebaseauth
 
+	authCli := firebaseauth.NewClient(e.ProjectID)
+	// fCli := cloudfirestore.NewClient(e.ProjectID)
+
 	if e.ENV == "LOCAL" {
 		lCli = log.NewWriterStdout()
-		firebaseAuth = firebaseauth.NewDebug()
+		firebaseAuth = firebaseauth.NewDebug(authCli)
 	} else {
 		lCli = log.NewWriterStackdriver(e.ProjectID)
-		firebaseAuth = firebaseauth.New()
+		firebaseAuth = firebaseauth.New(authCli)
 	}
-
-	// fCli := cloudfirestore.NewClient(e.ProjectID)
 
 	// Config
 	dbCfg := mysql.NewConfig()
