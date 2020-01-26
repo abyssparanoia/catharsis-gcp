@@ -15,6 +15,8 @@ FROM alpine AS server
 
 RUN apk add ca-certificates
 COPY --from=builder /go/bin/default /bin/server
+COPY --from=builder /go/src/github.com/abyssparanoia/catharsis-gcp/.env.default /go/src/github.com/abyssparanoia/catharsis-gcp/.env.default
+
 
 WORKDIR /go/src/github.com/abyssparanoia/catharsis-gcp/
 
