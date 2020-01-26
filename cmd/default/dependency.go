@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/abyssparanoia/catharsis-gcp/default/handler/api"
 	"github.com/abyssparanoia/catharsis-gcp/default/infrastructure/repository"
-	"github.com/abyssparanoia/catharsis-gcp/default/service"
+	"github.com/abyssparanoia/catharsis-gcp/default/usecase"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/gluefirebaseauth"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/gluemysql"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/httpheader"
@@ -48,7 +48,7 @@ func (d *Dependency) Inject(e *Environment) {
 	// Service
 	dhh := httpheader.NewDummy()
 	hh := httpheader.New()
-	uSvc := service.NewUser(uRepo)
+	uSvc := usecase.NewUser(uRepo)
 
 	// Middleware
 	d.Log = log.NewMiddleware(lCli, e.MinLogSeverity)

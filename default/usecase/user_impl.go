@@ -1,4 +1,4 @@
-package service
+package usecase
 
 import (
 	"context"
@@ -26,7 +26,7 @@ func (s *user) Get(ctx context.Context, userID string) (*model.User, error) {
 	return user, nil
 }
 
-// NewUser ... get User service
+// NewUser ... get User usecase
 func NewUser(userRepo repository.User) User {
 	return &user{userRepo}
 }

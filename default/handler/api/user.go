@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/abyssparanoia/catharsis-gcp/default/domain/model"
-	"github.com/abyssparanoia/catharsis-gcp/default/service"
+	"github.com/abyssparanoia/catharsis-gcp/default/usecase"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/parameter"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/renderer"
 	validator "gopkg.in/go-playground/validator.v9"
@@ -12,7 +12,7 @@ import (
 
 // UserHandler ... user handler
 type UserHandler struct {
-	Svc service.User
+	userUsecase usecase.User
 }
 
 type userHandlerGetRequestParam struct {
@@ -36,7 +36,7 @@ func (h *UserHandler) Get(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user, err := h.Svc.Get(ctx, param.UserID)
+	user, err := h.userUsecase.Get(ctx, param.UserID)
 	if err != nil {
 		renderer.HandleError(ctx, w, "h.Svc.Get", err)
 		return
@@ -46,8 +46,6 @@ func (h *UserHandler) Get(w http.ResponseWriter, r *http.Request) {
 }
 
 // NewUserHandler ... get user handler
-func NewUserHandler(Svc service.User) *UserHandler {
-	return &UserHandler{
-		Svc: Svc,
-	}
+func NewUserHandler(userUsecase usecase.User) *UserHandler {
+	return &UserHandler{userUsecase}
 }
