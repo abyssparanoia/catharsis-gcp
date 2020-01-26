@@ -1,4 +1,4 @@
-package psql
+package gluepsql
 
 // Config ... psql config
 type Config struct {
