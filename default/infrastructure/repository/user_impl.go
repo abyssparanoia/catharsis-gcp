@@ -6,12 +6,12 @@ import (
 	"github.com/abyssparanoia/catharsis-gcp/default/domain/model"
 	"github.com/abyssparanoia/catharsis-gcp/default/domain/repository"
 	"github.com/abyssparanoia/catharsis-gcp/default/infrastructure/entity"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/gluemysql"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
-	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/mysql"
 )
 
 type user struct {
-	cli *mysql.Client
+	cli *gluemysql.Client
 }
 
 func (r *user) Get(ctx context.Context, userID string) (*model.User, error) {
@@ -23,7 +23,7 @@ func (r *user) Get(ctx context.Context, userID string) (*model.User, error) {
 		Limit(1).
 		Find(&dsts)
 
-	if err := mysql.HandleErrors(db); err != nil {
+	if err := gluemysql.HandleErrors(db); err != nil {
 		log.Errorm(ctx, "db.Find", err)
 		return nil, err
 	}
@@ -36,6 +36,6 @@ func (r *user) Get(ctx context.Context, userID string) (*model.User, error) {
 }
 
 // NewUser ... get user repository
-func NewUser(cli *mysql.Client) repository.User {
+func NewUser(cli *gluemysql.Client) repository.User {
 	return &user{cli}
 }

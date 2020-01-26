@@ -9,11 +9,11 @@ import (
 	"firebase.google.com/go/auth"
 )
 
-type gluefirebaseauth struct {
+type firebaseauth struct {
 	cli *auth.Client
 }
 
-func (s *gluefirebaseauth) CreateTokenWithClaims(ctx context.Context, userID string, claims *Claims) (string, error) {
+func (s *firebaseauth) CreateTokenWithClaims(ctx context.Context, userID string, claims *Claims) (string, error) {
 	token, err := s.cli.CustomTokenWithClaims(ctx, userID, claims.ToMap())
 	if err != nil {
 		log.Errorm(ctx, "s.cli.CustomTokenWithClaims", err)
@@ -23,7 +23,7 @@ func (s *gluefirebaseauth) CreateTokenWithClaims(ctx context.Context, userID str
 }
 
 // Authentication ... authenticate
-func (s *gluefirebaseauth) Authentication(ctx context.Context, ah string) (string, *Claims, error) {
+func (s *firebaseauth) Authentication(ctx context.Context, ah string) (string, *Claims, error) {
 	var userID string
 	claims := &Claims{}
 
@@ -46,7 +46,7 @@ func (s *gluefirebaseauth) Authentication(ctx context.Context, ah string) (strin
 	return userID, claims, nil
 }
 
-func (s *gluefirebaseauth) CreateUser(ctx context.Context, email string, password string) (*auth.UserRecord, error) {
+func (s *firebaseauth) CreateUser(ctx context.Context, email string, password string) (*auth.UserRecord, error) {
 
 	userCreate := &auth.UserToCreate{}
 	userCreate = userCreate.Email(email)
@@ -61,7 +61,7 @@ func (s *gluefirebaseauth) CreateUser(ctx context.Context, email string, passwor
 	return userRecord, nil
 }
 
-func (s *gluefirebaseauth) GetUserByEmail(ctx context.Context, email string) (*auth.UserRecord, error) {
+func (s *firebaseauth) GetUserByEmail(ctx context.Context, email string) (*auth.UserRecord, error) {
 
 	userRecord, err := s.cli.GetUserByEmail(ctx, email)
 	if err != nil {
@@ -75,7 +75,7 @@ func (s *gluefirebaseauth) GetUserByEmail(ctx context.Context, email string) (*a
 
 }
 
-// New ... get gluefirebaseauth
-func New(cli *auth.Client) gluefirebaseauth {
-	return &gluefirebaseauth{cli}
+// New ... get firebaseauth
+func New(cli *auth.Client) Firebaseauth {
+	return &firebaseauth{cli}
 }

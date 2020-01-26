@@ -12,7 +12,7 @@ import (
 
 // Middleware ... http middleware for firebase authentication
 type Middleware struct {
-	gluefirebaseauth gluefirebaseauth
+	firebaseauth Firebaseauth
 }
 
 // Handle ... authenticate handler
@@ -26,7 +26,7 @@ func (m *Middleware) Handle(next http.Handler) http.Handler {
 			return
 		}
 
-		userID, claims, err := m.gluefirebaseauth.Authentication(ctx, ah)
+		userID, claims, err := m.firebaseauth.Authentication(ctx, ah)
 		if err != nil {
 			m.renderError(ctx, w, http.StatusForbidden, err.Error())
 			return
@@ -46,8 +46,8 @@ func (m *Middleware) renderError(ctx context.Context, w http.ResponseWriter, sta
 }
 
 // NewMiddleware ... get middleware
-func NewMiddleware(gluefirebaseauth gluefirebaseauth) *Middleware {
+func NewMiddleware(firebaseauth Firebaseauth) *Middleware {
 	return &Middleware{
-		gluefirebaseauth,
+		firebaseauth,
 	}
 }
