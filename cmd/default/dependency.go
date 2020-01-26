@@ -26,7 +26,7 @@ func (d *Dependency) Inject(e *Environment) {
 	var firebaseAuth firebaseauth.Firebaseauth
 
 	authCli := firebaseauth.NewClient(e.ProjectID)
-	// fCli := cloudfirestore.NewClient(e.ProjectID)
+	// fCli := gluefirestore.NewClient(e.ProjectID)
 
 	if e.ENV == "LOCAL" {
 		lCli = log.NewWriterStdout()

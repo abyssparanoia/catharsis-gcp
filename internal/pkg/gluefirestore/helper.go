@@ -1,4 +1,4 @@
-package cloudfirestore
+package gluefirestore
 
 import (
 	"context"

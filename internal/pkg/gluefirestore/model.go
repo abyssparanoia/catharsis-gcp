@@ -1,4 +1,4 @@
-package cloudfirestore
+package gluefirestore
 
 // DocRef ... firestore document reference
 type DocRef struct {

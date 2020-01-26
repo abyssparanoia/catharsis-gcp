@@ -1,4 +1,4 @@
-package cloudfirestore
+package gluefirestore
 
 import (
 	"reflect"
@@ -12,7 +12,7 @@ func setDocByDst(dst interface{}, ref *firestore.DocumentRef) {
 	if rt.Kind() == reflect.Struct {
 		for i := 0; i < rt.NumField(); i++ {
 			f := rt.Field(i)
-			tag := f.Tag.Get("cloudfirestore")
+			tag := f.Tag.Get("gluefirestore")
 			if tag == "id" && f.Type.Kind() == reflect.String {
 				rv.Field(i).SetString(ref.ID)
 				continue
@@ -29,7 +29,7 @@ func setDocByDsts(rv reflect.Value, rt reflect.Type, ref *firestore.DocumentRef)
 	if rt.Kind() == reflect.Struct {
 		for i := 0; i < rt.NumField(); i++ {
 			f := rt.Field(i)
-			tag := f.Tag.Get("cloudfirestore")
+			tag := f.Tag.Get("gluefirestore")
 			if tag == "id" && f.Type.Kind() == reflect.String {
 				rv.Elem().Field(i).SetString(ref.ID)
 				continue
