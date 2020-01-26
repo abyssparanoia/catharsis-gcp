@@ -1,4 +1,4 @@
-package firebaseauth
+package gluefirebaseauth
 
 import (
 	"context"
@@ -9,12 +9,12 @@ import (
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
 )
 
-type firebaseauthDebug struct {
+type gluefirebaseauthDebug struct {
 	cli *auth.Client
 }
 
 // Authentication ... authenticate
-func (s *firebaseauthDebug) Authentication(ctx context.Context, ah string) (string, *Claims, error) {
+func (s *gluefirebaseauthDebug) Authentication(ctx context.Context, ah string) (string, *Claims, error) {
 	var userID string
 	claims := &Claims{}
 
@@ -44,7 +44,7 @@ func (s *firebaseauthDebug) Authentication(ctx context.Context, ah string) (stri
 	return userID, claims, nil
 }
 
-func (s *firebaseauthDebug) CreateTokenWithClaims(ctx context.Context, userID string, claims *Claims) (string, error) {
+func (s *gluefirebaseauthDebug) CreateTokenWithClaims(ctx context.Context, userID string, claims *Claims) (string, error) {
 	token, err := s.cli.CustomTokenWithClaims(ctx, userID, claims.ToMap())
 	if err != nil {
 		log.Errorm(ctx, "s.cli.CustomTokenWithClaims", err)
@@ -53,7 +53,7 @@ func (s *firebaseauthDebug) CreateTokenWithClaims(ctx context.Context, userID st
 	return token, nil
 }
 
-func (s *firebaseauthDebug) CreateUser(ctx context.Context, email string, password string) (*auth.UserRecord, error) {
+func (s *gluefirebaseauthDebug) CreateUser(ctx context.Context, email string, password string) (*auth.UserRecord, error) {
 
 	userCreate := &auth.UserToCreate{}
 	userCreate = userCreate.Email(email)
@@ -68,7 +68,7 @@ func (s *firebaseauthDebug) CreateUser(ctx context.Context, email string, passwo
 	return userRecord, nil
 }
 
-func (s *firebaseauthDebug) GetUserByEmail(ctx context.Context, email string) (*auth.UserRecord, error) {
+func (s *gluefirebaseauthDebug) GetUserByEmail(ctx context.Context, email string) (*auth.UserRecord, error) {
 
 	userRecord, err := s.cli.GetUserByEmail(ctx, email)
 	if err != nil {
@@ -82,7 +82,7 @@ func (s *firebaseauthDebug) GetUserByEmail(ctx context.Context, email string) (*
 
 }
 
-// NewDebug ... DebugFirebaseauthを作成する
-func NewDebug(cli *auth.Client) Firebaseauth {
-	return &firebaseauthDebug{cli}
+// NewDebug ... Debuggluefirebaseauthを作成する
+func NewDebug(cli *auth.Client) gluefirebaseauth {
+	return &gluefirebaseauthDebug{cli}
 }

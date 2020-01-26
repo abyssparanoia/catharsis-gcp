@@ -4,7 +4,7 @@ import (
 	"github.com/abyssparanoia/catharsis-gcp/default/handler/api"
 	"github.com/abyssparanoia/catharsis-gcp/default/infrastructure/repository"
 	"github.com/abyssparanoia/catharsis-gcp/default/service"
-	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/firebaseauth"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/gluefirebaseauth"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/httpheader"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
 	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/mysql"
@@ -13,7 +13,7 @@ import (
 // Dependency ... dependency
 type Dependency struct {
 	Log             *log.Middleware
-	FirebaseAuth    *firebaseauth.Middleware
+	gluefirebaseauth    *gluefirebaseauth.Middleware
 	DummyHTTPHeader *httpheader.Middleware
 	HTTPHeader      *httpheader.Middleware
 	UserHandler     *api.UserHandler
@@ -23,17 +23,17 @@ type Dependency struct {
 func (d *Dependency) Inject(e *Environment) {
 
 	var lCli log.Writer
-	var firebaseAuth firebaseauth.Firebaseauth
+	var gluefirebaseauth gluefirebaseauth.gluefirebaseauth
 
-	authCli := firebaseauth.NewClient(e.ProjectID)
+	authCli := gluefirebaseauth.NewClient(e.ProjectID)
 	// fCli := gluefirestore.NewClient(e.ProjectID)
 
 	if e.ENV == "LOCAL" {
 		lCli = log.NewWriterStdout()
-		firebaseAuth = firebaseauth.NewDebug(authCli)
+		gluefirebaseauth = gluefirebaseauth.NewDebug(authCli)
 	} else {
 		lCli = log.NewWriterStackdriver(e.ProjectID)
-		firebaseAuth = firebaseauth.New(authCli)
+		gluefirebaseauth = gluefirebaseauth.New(authCli)
 	}
 
 	// Config
@@ -52,7 +52,7 @@ func (d *Dependency) Inject(e *Environment) {
 
 	// Middleware
 	d.Log = log.NewMiddleware(lCli, e.MinLogSeverity)
-	d.FirebaseAuth = firebaseauth.NewMiddleware(firebaseAuth)
+	d.gluefirebaseauth = gluefirebaseauth.NewMiddleware(gluefirebaseauth)
 	d.DummyHTTPHeader = httpheader.NewMiddleware(dhh)
 	d.HTTPHeader = httpheader.NewMiddleware(hh)
 

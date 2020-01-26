@@ -1,4 +1,4 @@
-package firebaseauth
+package gluefirebaseauth
 
 import (
 	"context"

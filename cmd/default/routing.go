@@ -19,7 +19,7 @@ func Routing(r chi.Router, d Dependency) {
 
 	// need to authenticate for production
 	r.Route("/v1", func(r chi.Router) {
-		r.With(d.FirebaseAuth.Handle).Route("/users", func(r chi.Router) {
+		r.With(d.gluefirebaseauth.Handle).Route("/users", func(r chi.Router) {
 			//r.Post("/", d.UserHandler.Create)
 			r.Get("/{userID}", d.UserHandler.Get)
 		})

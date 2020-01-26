@@ -1,4 +1,4 @@
-package firebaseauth
+package gluefirebaseauth
 
 // Claims ... custom claims
 type Claims struct {

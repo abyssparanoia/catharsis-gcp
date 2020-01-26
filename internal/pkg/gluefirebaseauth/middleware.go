@@ -1,4 +1,4 @@
-package firebaseauth
+package gluefirebaseauth
 
 import (
 	"context"
@@ -12,7 +12,7 @@ import (
 
 // Middleware ... http middleware for firebase authentication
 type Middleware struct {
-	firebaseauth Firebaseauth
+	gluefirebaseauth gluefirebaseauth
 }
 
 // Handle ... authenticate handler
@@ -26,7 +26,7 @@ func (m *Middleware) Handle(next http.Handler) http.Handler {
 			return
 		}
 
-		userID, claims, err := m.firebaseauth.Authentication(ctx, ah)
+		userID, claims, err := m.gluefirebaseauth.Authentication(ctx, ah)
 		if err != nil {
 			m.renderError(ctx, w, http.StatusForbidden, err.Error())
 			return
@@ -46,8 +46,8 @@ func (m *Middleware) renderError(ctx context.Context, w http.ResponseWriter, sta
 }
 
 // NewMiddleware ... get middleware
-func NewMiddleware(firebaseauth Firebaseauth) *Middleware {
+func NewMiddleware(gluefirebaseauth gluefirebaseauth) *Middleware {
 	return &Middleware{
-		firebaseauth,
+		gluefirebaseauth,
 	}
 }

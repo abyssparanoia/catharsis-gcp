@@ -1,4 +1,4 @@
-package firebaseauth
+package gluefirebaseauth
 
 import (
 	"context"
@@ -6,8 +6,8 @@ import (
 	"firebase.google.com/go/auth"
 )
 
-// Firebaseauth ... service inteface for firebase authentication
-type Firebaseauth interface {
+// gluefirebaseauth ... service inteface for firebase authentication
+type gluefirebaseauth interface {
 	CreateTokenWithClaims(ctx context.Context, userID string, claims *Claims) (string, error)
 	Authentication(ctx context.Context, ah string) (string, *Claims, error)
 	GetUserByEmail(ctx context.Context, email string) (*auth.UserRecord, error)

@@ -1,26 +1,26 @@
-package firebaseauth
+package gluefirebaseauth
 
 import "context"
 
 type contextKey string
 
 const (
-	userIDContextKey     contextKey = "firebaseauth:user_id"
-	authHeaderContextKey contextKey = "firebaseauth:auth_header"
+	userIDContextKey     contextKey = "gluefirebaseauth:user_id"
+	authHeaderContextKey contextKey = "gluefirebaseauth:auth_header"
 
-	claimsContextKey contextKey = "firebaseauth:claims"
+	claimsContextKey contextKey = "gluefirebaseauth:claims"
 )
 
 func getAuthHeader(ctx context.Context) string {
 	return ctx.Value(authHeaderContextKey).(string)
 }
 
-// GetUserID ... get FirebaseAuthUID from context
+// GetUserID ... get gluefirebaseauthUID from context
 func GetUserID(ctx context.Context) string {
 	return ctx.Value(userIDContextKey).(string)
 }
 
-// GetClaims ... get FirebaseAuthJWTClaims from context
+// GetClaims ... get gluefirebaseauthJWTClaims from context
 func GetClaims(ctx context.Context) Claims {
 	return ctx.Value(claimsContextKey).(Claims)
 }

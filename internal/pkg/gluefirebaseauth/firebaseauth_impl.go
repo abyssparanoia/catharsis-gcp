@@ -1,4 +1,4 @@
-package firebaseauth
+package gluefirebaseauth
 
 import (
 	"context"
@@ -9,11 +9,11 @@ import (
 	"firebase.google.com/go/auth"
 )
 
-type firebaseauth struct {
+type gluefirebaseauth struct {
 	cli *auth.Client
 }
 
-func (s *firebaseauth) CreateTokenWithClaims(ctx context.Context, userID string, claims *Claims) (string, error) {
+func (s *gluefirebaseauth) CreateTokenWithClaims(ctx context.Context, userID string, claims *Claims) (string, error) {
 	token, err := s.cli.CustomTokenWithClaims(ctx, userID, claims.ToMap())
 	if err != nil {
 		log.Errorm(ctx, "s.cli.CustomTokenWithClaims", err)
@@ -23,7 +23,7 @@ func (s *firebaseauth) CreateTokenWithClaims(ctx context.Context, userID string,
 }
 
 // Authentication ... authenticate
-func (s *firebaseauth) Authentication(ctx context.Context, ah string) (string, *Claims, error) {
+func (s *gluefirebaseauth) Authentication(ctx context.Context, ah string) (string, *Claims, error) {
 	var userID string
 	claims := &Claims{}
 
@@ -46,7 +46,7 @@ func (s *firebaseauth) Authentication(ctx context.Context, ah string) (string, *
 	return userID, claims, nil
 }
 
-func (s *firebaseauth) CreateUser(ctx context.Context, email string, password string) (*auth.UserRecord, error) {
+func (s *gluefirebaseauth) CreateUser(ctx context.Context, email string, password string) (*auth.UserRecord, error) {
 
 	userCreate := &auth.UserToCreate{}
 	userCreate = userCreate.Email(email)
@@ -61,7 +61,7 @@ func (s *firebaseauth) CreateUser(ctx context.Context, email string, password st
 	return userRecord, nil
 }
 
-func (s *firebaseauth) GetUserByEmail(ctx context.Context, email string) (*auth.UserRecord, error) {
+func (s *gluefirebaseauth) GetUserByEmail(ctx context.Context, email string) (*auth.UserRecord, error) {
 
 	userRecord, err := s.cli.GetUserByEmail(ctx, email)
 	if err != nil {
@@ -75,7 +75,7 @@ func (s *firebaseauth) GetUserByEmail(ctx context.Context, email string) (*auth.
 
 }
 
-// New ... get firebaseauth
-func New(cli *auth.Client) Firebaseauth {
-	return &firebaseauth{cli}
+// New ... get gluefirebaseauth
+func New(cli *auth.Client) gluefirebaseauth {
+	return &gluefirebaseauth{cli}
 }
