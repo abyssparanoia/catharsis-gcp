@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"strconv"
 
-	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/util"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/util"
 )
 
 // GetForm ... get form value

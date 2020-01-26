@@ -7,8 +7,8 @@ import (
 	"cloud.google.com/go/firestore"
 	"google.golang.org/api/iterator"
 
-	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/util"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/util"
 )
 
 // GenerateDocumentRef ... generate document

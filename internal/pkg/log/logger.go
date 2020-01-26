@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/abyssparanoia/catharsis-gcp/pkg/errcode"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/util"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/errcode"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/util"
 )
 
 // Logger ... logger model

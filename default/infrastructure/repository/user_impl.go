@@ -6,8 +6,8 @@ import (
 	"github.com/abyssparanoia/catharsis-gcp/default/domain/model"
 	"github.com/abyssparanoia/catharsis-gcp/default/domain/repository"
 	"github.com/abyssparanoia/catharsis-gcp/default/infrastructure/entity"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/mysql"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/mysql"
 )
 
 type user struct {

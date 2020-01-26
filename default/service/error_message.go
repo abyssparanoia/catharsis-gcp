@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
 )
 
 func newUserNotExistError(ctx context.Context, userID string) error {

@@ -3,7 +3,7 @@ package log
 import (
 	"net/http"
 
-	"github.com/abyssparanoia/catharsis-gcp/pkg/util"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/util"
 )
 
 // Middleware ... middleware logger

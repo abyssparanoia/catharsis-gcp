@@ -5,8 +5,8 @@ import (
 
 	"github.com/abyssparanoia/catharsis-gcp/default/domain/model"
 	"github.com/abyssparanoia/catharsis-gcp/default/service"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/parameter"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/renderer"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/parameter"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/renderer"
 	validator "gopkg.in/go-playground/validator.v9"
 )
 

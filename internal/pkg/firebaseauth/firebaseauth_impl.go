@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
 
 	"firebase.google.com/go/auth"
 )

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
 )
 
 // GetJSON ... get json data

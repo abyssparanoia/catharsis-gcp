@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/abyssparanoia/catharsis-gcp/default/handler"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/accesscontrol"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/accesscontrol"
 	"github.com/go-chi/chi"
 )
 

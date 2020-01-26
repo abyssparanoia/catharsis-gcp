@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
 	"github.com/go-chi/chi"
 )
 

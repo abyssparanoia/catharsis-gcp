@@ -4,10 +4,10 @@ import (
 	"github.com/abyssparanoia/catharsis-gcp/default/handler/api"
 	"github.com/abyssparanoia/catharsis-gcp/default/infrastructure/repository"
 	"github.com/abyssparanoia/catharsis-gcp/default/service"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/firebaseauth"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/httpheader"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/log"
-	"github.com/abyssparanoia/catharsis-gcp/pkg/mysql"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/firebaseauth"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/httpheader"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/log"
+	"github.com/abyssparanoia/catharsis-gcp/internal/pkg/mysql"
 )
 
 // Dependency ... dependency
